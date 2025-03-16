@@ -44,7 +44,6 @@ public class modul_1 {
                 break;
             default:
                 System.out.println("pilihan tidak valid");
-
         }
         input.close();
     }

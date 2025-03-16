@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class KelasAdmin {
     String nama = "Admin402";
     String password = "password402";
-    public boolean login(){
 
+    public boolean login(){
         Scanner input = new Scanner(System.in);
         System.out.print("Nama : ");
         String nama1 = input.next();

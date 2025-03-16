@@ -18,6 +18,7 @@ public class modul_2 {
                 }
                 System.out.println("login berhasil");
             case 2:
+                KelasMahasiswa mahasiswa = new KelasMahasiswa();
 
         }
 
