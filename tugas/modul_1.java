@@ -11,7 +11,6 @@ public class modul_1 {
         System.out.println("Masukkan pilihan: ");
         int pilihan = input.nextInt();
         input.nextLine();
-        //budi
 
         switch (pilihan){
             case 1:
