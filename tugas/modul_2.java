@@ -9,17 +9,24 @@ public class modul_2 {
         System.out.print("pilihan: ");
         int pilihan = input.nextInt();
 
-        switch (pilihan){
-            case 1 :
+        switch (pilihan) {
+            case 1:
                 KelasAdmin admin = new KelasAdmin();
 
                 while (!admin.login()) {
                     System.out.println("silahkan coba lagi");
                 }
                 System.out.println("login berhasil");
+                break;
             case 2:
                 KelasMahasiswa mahasiswa = new KelasMahasiswa();
-
+                while (!mahasiswa.login1()) {
+                    System.out.println("silahkan coba kembali");
+                }
+                System.out.println("login berhasil");
+                break;
+            default:
+                System.out.println("pilihan tidak valid");
         }
 
     }
