@@ -1,12 +1,12 @@
 public class codeLab {
     public void displayInfo(){
-        Pahlawan pahlawan = new Pahlawan("Arthur", 100, 20, "pistol");
-        Vilain vilain = new Vilain("Micah", 80, 15, "pisau");
+        Pahlawan pahlawan = new Pahlawan("budi", 100, 20, "pistol");
+        Vilain vilain = new Vilain("abangda", 80, 15, "pisau");
 
-        pahlawan.setNama("budi");
+        pahlawan.setNama("Arthur Morgan");
         pahlawan.setKesehatan(200);
 
-        vilain.setNama("adit");
+        vilain.setNama("Micah");
         vilain.setKesehatan(150);
 
         System.out.println("Status awal");
@@ -15,12 +15,10 @@ public class codeLab {
         System.out.println();
 
         pahlawan.serang(vilain);
-        System.out.println(vilain.getNama() + " terkena damage " + pahlawan.getdamage() + " ,sekarang memiliki kesehatan " + vilain.getKesehatan());
-
         vilain.serang(pahlawan);
-        System.out.println(pahlawan.getNama() + " serkarang memiliki kesehatan " + pahlawan.getKesehatan());
 
     }
+    //subclass pahlawan
     static class Pahlawan extends KarakterGame{
         public Pahlawan(String nama, int kesehatan, int damage, String skil){
             super(nama, kesehatan, damage, skil);
@@ -28,11 +26,14 @@ public class codeLab {
 
         @Override
         public void serang(KarakterGame lawan){
-            System.out.println(super.getNama() + " gunslingger menyerang dengan " + getSkil());
+
             super.serang(lawan);
 
+            System.out.println(getNama() + " gunslingger menyerang dengan " + getSkil());
+            System.out.println(lawan.getNama() + " serkarang memiliki kesehatan " + lawan.getKesehatan());
         }
     }
+    //sub classs vilain
     static class  Vilain extends KarakterGame{
         public Vilain(String nama, int kesehatan, int damage, String skil){
             super(nama, kesehatan, damage, skil);
@@ -40,9 +41,9 @@ public class codeLab {
 
         @Override
         public void serang(KarakterGame lawan) {
-            System.out.println(getNama() + " vilian menyerang degnan " + getSkil());
             super.serang(lawan);
-
+            System.out.println(getNama() + " vilian menyerang dengnan " + getSkil());
+            System.out.println(lawan.getNama() + " ,sekarang memiliki kesehatan " + lawan.getKesehatan());
         }
     }
     public static void main(String[] args){

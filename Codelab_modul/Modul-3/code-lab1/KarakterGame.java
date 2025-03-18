@@ -1,4 +1,4 @@
-public class KarakterGame {
+public abstract class KarakterGame {
     private String nama;
     private  int kesehatan;
     private final int damage;
@@ -26,11 +26,9 @@ public class KarakterGame {
         return kesehatan;
     }
 
-
     public int getdamage(){
         return damage;
     }
-
 
     public String getSkil() {
         return skil;
