@@ -1,5 +1,6 @@
 public class Users {
     private String nama, Password;
+
     Users(String nama, String Password){
         this.nama = nama;
         this.Password = Password;
@@ -21,11 +22,12 @@ public class Users {
         return Password;
     }
 
-    public void login(Users periksa){
 
+    public boolean login(String nama1, String password1){
+        return (nama1.equals(nama) && password1.equals(Password));
     }
 
     public void displayInfo (){
-
+        System.out.println("nama: " + getNama());
     }
 }
