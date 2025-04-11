@@ -65,6 +65,7 @@ public class modul_3_LoginSystem {
         public boolean ProccesLoigin(String inputName, String inputNIM){
             if(login(inputName, inputNIM)){
                 System.out.println("login berhasil");
+                super.displayInfo();
                 return true;
             }else{
                 System.out.println("gagak login ");
