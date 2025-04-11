@@ -23,8 +23,8 @@ public class Users {
     }
 
 
-    public boolean login(String nama1, String password1){
-        return (nama1.equals(nama) && password1.equals(Password));
+    public boolean login(String InputNama, String InputPaswwrod){
+        return (InputNama.equals(nama) && InputPaswwrod.equals(Password));
     }
 
     public void displayInfo (){

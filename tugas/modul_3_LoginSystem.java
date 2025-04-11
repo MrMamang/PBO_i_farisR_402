@@ -6,12 +6,12 @@ public class modul_3_LoginSystem {
         System.out.println("2. Mahasiswa ");
         System.out.println("Pilih menu login ");
         int pilihan = input.nextInt();
+        boolean suksesLogin = false;
         input.nextLine();
 
         switch (pilihan){
             case 1:
                admin admin = new admin("admin402", "pass402");
-               boolean suksesLogin = false;
                while (!suksesLogin) {
                    System.out.print("masukkan nama : ");
                    String nama = input.nextLine().trim();
@@ -21,7 +21,14 @@ public class modul_3_LoginSystem {
                }
                 break;
             case 2:
-
+                while(!suksesLogin){
+                   mahasiswa mahasiswa = new mahasiswa("Faris", "202410370110402");
+                   System.out.print("masukkan nama mahasiswa: ");
+                   String inputNama = input.nextLine();
+                   System.out.print("Mauskkan NIM anda: ");
+                   String InputNIM = input.nextLine();
+                   suksesLogin = mahasiswa.ProccesLoigin(inputNama, InputNIM);
+                }
                 break;
             default:
                 System.out.println("pilihan tidak valid");
@@ -31,7 +38,6 @@ public class modul_3_LoginSystem {
       static class admin extends Users{
         public admin(String nama, String Password){
             super(nama, Password);
-
         }
         @Override
         public boolean login(String namaInput, String passwordInput){
@@ -45,6 +51,24 @@ public class modul_3_LoginSystem {
             }else{
                 System.out.println("loigin gagal");
                 return  false;
+            }
+        }
+    }
+    static class mahasiswa extends Users{
+        mahasiswa(String nama, String password) {
+            super(nama, password);
+        }
+        @Override
+        public boolean login (String inputNama, String InputnNIM){
+        return super.login(inputNama, InputnNIM);
+        }
+        public boolean ProccesLoigin(String inputName, String inputNIM){
+            if(login(inputName, inputNIM)){
+                System.out.println("login berhasil");
+                return true;
+            }else{
+                System.out.println("gagak login ");
+                return false;
             }
         }
     }
