@@ -7,7 +7,7 @@ public class KelasMahasiswa {
         Scanner input = new Scanner(System.in);
         System.out.print("Nama : ");
         String nama1 = input.next();
-        System.out.print("Password: ");
+        System.out.print("Masukkan NIM : ");
         String nim = input.next();
 
         if(!PeriksaLogin(nama1, nim)){
@@ -19,5 +19,9 @@ public class KelasMahasiswa {
     }
     public boolean PeriksaLogin(String nama1, String nim){
         return (nama1.equals(nama) && nim.equals(NIM));
+    }
+    public void DisplayINfo(){
+        System.out.println("nama : " + nama);
+        System.out.println("NIM : " + NIM);
     }
 }

@@ -62,15 +62,21 @@ public class modul_3_LoginSystem {
         public boolean login (String inputNama, String InputnNIM){
         return super.login(inputNama, InputnNIM);
         }
+
         public boolean ProccesLoigin(String inputName, String inputNIM){
             if(login(inputName, inputNIM)){
                 System.out.println("login berhasil");
-                super.displayInfo();
+                infoMahasiswa();
                 return true;
             }else{
                 System.out.println("gagak login ");
                 return false;
             }
+        }
+        @Override
+        public void infoMahasiswa(){
+            System.out.println("Nama : " + getNama());
+            System.out.println("NIM: " + getPassword());
         }
     }
 }

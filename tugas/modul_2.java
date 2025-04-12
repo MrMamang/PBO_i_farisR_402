@@ -17,6 +17,7 @@ public class modul_2 {
                     System.out.println("silahkan coba lagi");
                 }
                 System.out.println("login berhasil");
+                admin.DisplayInfo();
                 break;
             case 2:
                 KelasMahasiswa mahasiswa = new KelasMahasiswa();
@@ -24,6 +25,7 @@ public class modul_2 {
                     System.out.println("silahkan coba kembali");
                 }
                 System.out.println("login berhasil");
+                mahasiswa.DisplayINfo();
                 break;
             default:
                 System.out.println("pilihan tidak valid");

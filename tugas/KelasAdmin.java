@@ -20,4 +20,8 @@ public class KelasAdmin {
     public boolean PeriksaLogin(String nama1, String pass){
        return (nama1.equals(nama) && pass.equals(password));
     }
+    public void DisplayInfo(){
+        System.out.println("Nama : " + nama);
+        System.out.println("password : " + password);
+    }
 }
