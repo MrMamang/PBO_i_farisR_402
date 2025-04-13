@@ -11,23 +11,27 @@ public class modul_3_LoginSystem {
 
         switch (pilihan){
             case 1:
-               admin admin = new admin("admin402", "pass402");
+               admin Admin = new admin();
                while (!suksesLogin) {
                    System.out.print("masukkan nama : ");
                    String nama = input.nextLine().trim();
                    System.out.print("masukkan password anda: ");
                    String pass = input.nextLine().trim();
-                   suksesLogin = admin.proccesLogin(nama, pass);
+                   suksesLogin = Admin.proccesLogin(nama, pass);
                }
                 break;
             case 2:
+                mahasiswa Mahasiswa = new mahasiswa();
                 while(!suksesLogin){
-                   mahasiswa mahasiswa = new mahasiswa("Faris", "202410370110402");
+
+                   Mahasiswa.setNama("Faris");
+                   Mahasiswa.setPassword("202410370110402");
+
                    System.out.print("masukkan nama mahasiswa: ");
                    String inputNama = input.nextLine();
                    System.out.print("Mauskkan NIM anda: ");
                    String InputNIM = input.nextLine();
-                   suksesLogin = mahasiswa.ProccesLoigin(inputNama, InputNIM);
+                   suksesLogin = Mahasiswa.ProccesLoigin(inputNama, InputNIM);
                 }
                 break;
             default:
@@ -36,8 +40,8 @@ public class modul_3_LoginSystem {
     }
 
       static class admin extends Users{
-        public admin(String nama, String Password){
-            super(nama, Password);
+        public admin(){
+            super(" ", "");
         }
         @Override
         public boolean login(String namaInput, String passwordInput){
@@ -45,18 +49,24 @@ public class modul_3_LoginSystem {
         }
         public boolean proccesLogin(String nama1, String password1){
             if(login(nama1, password1)){
-                System.out.println("login berhasuil");
-                super.displayInfo();
+                displayInfo();
                 return true;
             }else{
                 System.out.println("loigin gagal");
                 return  false;
             }
         }
+         @Override
+          public void displayInfo(){
+            System.out.println("Login berhasil");
+            System.out.println("Nama: " + getNama());
+            System.out.println("Passwrod: " + getPassword());
+
+        }
     }
     static class mahasiswa extends Users{
-        mahasiswa(String nama, String password) {
-            super(nama, password);
+        mahasiswa() {
+            super("", "");
         }
         @Override
         public boolean login (String inputNama, String InputnNIM){
@@ -65,8 +75,7 @@ public class modul_3_LoginSystem {
 
         public boolean ProccesLoigin(String inputName, String inputNIM){
             if(login(inputName, inputNIM)){
-                System.out.println("login berhasil");
-                infoMahasiswa();
+               displayInfo();
                 return true;
             }else{
                 System.out.println("gagak login ");
@@ -74,7 +83,8 @@ public class modul_3_LoginSystem {
             }
         }
         @Override
-        public void infoMahasiswa(){
+        public void displayInfo (){
+            System.out.println("Login berhasil");
             System.out.println("Nama : " + getNama());
             System.out.println("NIM: " + getPassword());
         }

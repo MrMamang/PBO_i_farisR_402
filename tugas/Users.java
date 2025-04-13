@@ -31,8 +31,5 @@ public class Users {
         System.out.println("nama: " + getNama());
         System.out.println("password : " + getPassword());
     }
-    public void infoMahasiswa (){
-        System.out.println("Nama : " + getNama());
-        System.out.println("NIM: " + getPassword());
-    }
+
 }
