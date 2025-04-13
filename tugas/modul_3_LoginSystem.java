@@ -12,6 +12,10 @@ public class modul_3_LoginSystem {
         switch (pilihan){
             case 1:
                admin Admin = new admin();
+
+               Admin.setNama("admin402");
+               Admin.setPassword("pass402");
+
                while (!suksesLogin) {
                    System.out.print("masukkan nama : ");
                    String nama = input.nextLine().trim();
@@ -22,11 +26,11 @@ public class modul_3_LoginSystem {
                 break;
             case 2:
                 mahasiswa Mahasiswa = new mahasiswa();
+
+                Mahasiswa.setNama("Faris");
+                Mahasiswa.setPassword("202410370110402");
+
                 while(!suksesLogin){
-
-                   Mahasiswa.setNama("Faris");
-                   Mahasiswa.setPassword("202410370110402");
-
                    System.out.print("masukkan nama mahasiswa: ");
                    String inputNama = input.nextLine();
                    System.out.print("Mauskkan NIM anda: ");

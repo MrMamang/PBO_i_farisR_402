@@ -28,8 +28,7 @@ public class Users {
     }
 
     public void displayInfo (){
-        System.out.println("nama: " + getNama());
-        System.out.println("password : " + getPassword());
+        System.out.println("sukses is not yetn");
     }
 
 }
