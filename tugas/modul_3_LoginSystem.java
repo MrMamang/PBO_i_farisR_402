@@ -18,9 +18,9 @@ public class modul_3_LoginSystem {
 
                while (!suksesLogin) {
                    System.out.print("masukkan nama : ");
-                   String nama = input.nextLine().trim();
+                   String nama = input.nextLine();
                    System.out.print("masukkan password anda: ");
-                   String pass = input.nextLine().trim();
+                   String pass = input.nextLine();
                    suksesLogin = Admin.proccesLogin(nama, pass);
                }
                 break;

@@ -28,7 +28,7 @@ public class Users {
     }
 
     public void displayInfo (){
-        System.out.println("sukses is not yetn");
+        System.out.println("sukses is not yet");
     }
 
 }
