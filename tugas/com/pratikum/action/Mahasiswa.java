@@ -46,6 +46,7 @@ public  class Mahasiswa extends Users implements MahasiswaAction{
 
     @Override
     protected boolean prosesLogin(String InputNama, String InputPassword) {
+        InputNama = InputNama.trim();
         return (InputNama.equals(nama) && InputPassword.equals(Password));
 
     }

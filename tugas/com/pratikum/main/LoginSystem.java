@@ -19,7 +19,7 @@ public class LoginSystem {
         switch (pilih){
             case 1:
                 while(!suksesLogin){
-                    Admin admin = new Admin("Faris402","402");
+                    Admin admin = new Admin("Faris 402","402");
                     System.out.println("Nama: ");
                     String nama = input.nextLine();
 
@@ -30,7 +30,7 @@ public class LoginSystem {
                 }
                 break;
             case 2:
-                Mahasiswa mahasiswa = new Mahasiswa("Faris", "pass402");
+                Mahasiswa mahasiswa = new Mahasiswa("Faris Ramadhan Riyanto", "202410370110402");
                 while (!suksesLogin){
                     System.out.println("Nama: ");
                     String nama = input.nextLine();

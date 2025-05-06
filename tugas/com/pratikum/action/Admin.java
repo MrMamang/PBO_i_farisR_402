@@ -65,6 +65,7 @@ public  class Admin extends Users implements AdminAction {
 
     @Override
     protected boolean prosesLogin(String InputNama, String InputPassword) {
+        InputNama = InputNama.trim();
         return (InputNama.equals(nama) && InputPassword.equals(Password));
     }
 }
