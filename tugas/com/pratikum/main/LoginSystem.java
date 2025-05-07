@@ -1,5 +1,5 @@
 package com.pratikum.main;
-import com.pratikum.action.*;
+import com.pratikum.users.*;
 
 import java.util.Scanner;
 
@@ -29,6 +29,7 @@ public class LoginSystem {
                     suksesLogin = admin.login(nama, Password);
                 }
                 break;
+
             case 2:
                 Mahasiswa mahasiswa = new Mahasiswa("Faris Ramadhan Riyanto", "202410370110402");
                 while (!suksesLogin){
@@ -43,7 +44,7 @@ public class LoginSystem {
             default:
                 System.out.println("pilihana anda tidak valiid");
         }
-
+        input.close();
 
     }
 

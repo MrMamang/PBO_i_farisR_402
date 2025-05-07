@@ -1,9 +1,10 @@
-package com.pratikum.action;
+package com.pratikum.users;
 import java.util.Scanner;
-import com.pratikum.users.*;
+
+import com.pratikum.action.MahasiswaAction;
 
 
-public  class Mahasiswa extends Users implements MahasiswaAction{
+public  class Mahasiswa extends Users implements MahasiswaAction {
 
     Scanner input = new Scanner(System.in);
 
@@ -39,7 +40,7 @@ public  class Mahasiswa extends Users implements MahasiswaAction{
             displayAppMenu();
             return true;
         }else{
-
+            System.out.println("login gagal coba lagi");
             return false;
         }
     }
@@ -53,25 +54,27 @@ public  class Mahasiswa extends Users implements MahasiswaAction{
 
     @Override
     protected void displayAppMenu() {
-        System.out.println("1. Laporkan barang temuan/hilang");
-        System.out.println("2. Lihat Daftar Laporan");
-        System.out.println("0. logout");
-        int pilihan = input.nextInt();
-        input.nextLine();
+        int pilihan;
+        do {
+            System.out.println("1. Laporkan barang temuan/hilang");
+            System.out.println("2. Lihat Daftar Laporan");
+            System.out.println("0. logout");
+            pilihan = input.nextInt();
+            input.nextLine();
 
-        switch (pilihan){
-            case 1:
-                ReportItem();
-                break;
-            case 2:
-                ViewReportItems();
-                break;
-            case 0:
-                logout();
-            default:
-                System.out.println("pilihan tidak valid");
+            switch (pilihan) {
+                case 1:
+                    ReportItem();
+                    break;
+                case 2:
+                    ViewReportItems();
+                    break;
+                case 0:
+                    logout();
+                default:
+                    System.out.println("pilihan tidak valid");
 
-        }
-
+            }
+        }while (pilihan !=0);
     }
 }

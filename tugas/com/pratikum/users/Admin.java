@@ -1,6 +1,7 @@
-package com.pratikum.action;
+package com.pratikum.users;
 import java.util.Scanner;
-import com.pratikum.users.Users;
+
+import com.pratikum.action.AdminAction;
 
 public  class Admin extends Users implements AdminAction {
 
@@ -12,8 +13,7 @@ public  class Admin extends Users implements AdminAction {
 
     @Override
     public void ManageItems() {
-        System.out.println("Fitur kelola barang belum tersedia");
-
+        System.out.println("\nFitur kelola barang belum tersedia\n");
     }
 
     @Override
@@ -23,26 +23,28 @@ public  class Admin extends Users implements AdminAction {
     }
     @Override
     public void displayAppMenu(){
-        System.out.println("1. Kelola laporan barang");
-        System.out.println("2. Kelola Data mahasiswa");
-        System.out.println("0. logout");
-        int pilihan = input.nextInt();
-        input.nextLine();
+        int pilihan;
+        do {
+            System.out.println("1. Kelola laporan barang");
+            System.out.println("2. Kelola Data mahasiswa");
+            System.out.println("0. logout");
+            pilihan = input.nextInt();
+            input.nextLine();
 
-        switch (pilihan){
-            case 1:
-                ManageItems();
-                break;
-            case 2:
-                ManageUsers();
-                break;
-            case 0:
-                logout();
-                break;
-            default:
-                System.out.println("pilihasn tidak valid");
-        }
-
+            switch (pilihan) {
+                case 1:
+                    ManageItems();
+                    break;
+                case 2:
+                    ManageUsers();
+                    break;
+                case 0:
+                    logout();
+                    break;
+                default:
+                    System.out.println("pilihasn tidak valid");
+            }
+        }while (pilihan !=0);
 
     }
 
@@ -57,9 +59,9 @@ public  class Admin extends Users implements AdminAction {
             displayAppMenu();
             return true;
         }else{
+            System.out.println("login gagal coba lagi");
             return false;
         }
-
 
     }
 
