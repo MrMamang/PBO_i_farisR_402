@@ -4,18 +4,24 @@ import java.util.InputMismatchException;
 
 public class ManajemenStock {
     public static void main(String[] args){
+        // Membuat daftar untuk menyimpan objek barang
         ArrayList<Barang>daftarBarang = new ArrayList<>();
-        daftarBarang.add(new Barang("garam", 10));
+        // Menambahkan barang awal
+      Barang barang = new Barang("garam", 20);
 
         Scanner input = new Scanner(System.in);
         boolean ulang = true;
+        // Loop utama aplika
         while(ulang) {
+            //menampilkan menu awal
             System.out.println("===== Menu Manajemen stock ====");
             System.out.println("1. Tambahkan barang baru");
             System.out.println("2. Tampilkan semua barang");
             System.out.println("3. Kurangi stock barang");
             System.out.println("0. keluar");
+            System.out.print("Pilih Opsi: ");
             int pilih;
+            //menghindari salah input selain angka
             try {
                 pilih = input.nextInt();
             } catch (InputMismatchException e) {
@@ -28,6 +34,7 @@ public class ManajemenStock {
 
             switch (pilih) {
                 case 1:
+                    //menambahkan barang baru
                     System.out.println("Masukkan nama barang: ");
                     String nama = input.nextLine();
                     System.out.println("masukna stock awal: ");
@@ -36,7 +43,7 @@ public class ManajemenStock {
                         if (stok < 0) {
                             System.out.println("input stok tidak boleh angka negatif");
                         } else {
-                            daftarBarang.add(new Barang(nama, stok));
+                            daftarBarang.add(barang);
                             System.out.println("barang berhasil ditambahkan");
                         }
                     } catch (InputMismatchException e) {
@@ -46,13 +53,13 @@ public class ManajemenStock {
                     break;
                 case 2:
                     int index = 0;
+                    //menampilkan semua barang
                     if (daftarBarang.isEmpty()) {
                         System.out.println("baragn tidak tersedia");
                     } else {
-                        for (Barang barang : daftarBarang) {
-                            System.out.println(index + ". Nama barang: " + barang.getNama() + " jumlah stok: " + barang.getStok());
+                        for (Barang barang1 : daftarBarang) {
+                            System.out.println(index + ". Nama barang: " + barang.getNama() + "\t jumlah stok: " + barang.getStok());
                             index++;
-
                         }
                     }
                     break;
@@ -62,7 +69,7 @@ public class ManajemenStock {
                         System.out.println("baragn tidak ada");
                     } else {
                         for (int i = 0; i < daftarBarang.size(); i++) {
-                            Barang barang = daftarBarang.get(i);
+                            Barang barang1 = daftarBarang.get(i);
                             System.out.println(i + ". " + barang.getNama() + " Stock: " + barang.getStok());
                         }
                     }
@@ -74,18 +81,19 @@ public class ManajemenStock {
                         int ambilStock = input.nextInt();
 
                         if (ambilStock < 0) {
-                            System.out.println("ambilnyha jagnan negatif ya");
+                            System.out.println("stok tidak mencukupi");
                             break;
                         }
                         if (ambilStock > pilihBarang.getStok()) {
                             throw new StockTidakCukupException("Stok untuk barang " + pilihBarang.getNama() + " tersisa " + pilihBarang.getStok());
                         }
+                        //kurangin stok
                         pilihBarang.setStok(pilihBarang.getStok() - ambilStock);
                         System.out.println("stok barang " + pilihBarang.getNama() + "berhasil dikurangi.");
                         System.out.println("stok tersisa: " + pilihBarang.getStok());
 
                     } catch (InputMismatchException e) {
-                        System.out.println("input indeks haruws berupa angka");
+                        System.err.println("input indeks harus berupa angka");
                         input.nextLine();
                     } catch (IndexOutOfBoundsException e) {
                         System.out.println("indek barang tidak valid");
@@ -95,7 +103,8 @@ public class ManajemenStock {
                     break;
 
                 case 0:
-                    System.out.println("terimakasih sudah meemakai aplkikasi kami");
+                    //keluar program
+                    System.out.println("terimakasih sudah meemakai aplkikasi indo jaya");
                     ulang = false;
                     break;
 
@@ -104,6 +113,6 @@ public class ManajemenStock {
             }
 
         }
-
+        input.close();
     }
 }

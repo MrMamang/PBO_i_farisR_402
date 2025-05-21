@@ -1,7 +1,10 @@
 package com.pratikum.users;
+import java.util.List;
 import java.util.Scanner;
-
 import com.pratikum.action.MahasiswaAction;
+import com.pratikum.data.Item;
+import com.pratikum.main.LoginSystem;
+import java.util.InputMismatchException;
 
 
 public  class Mahasiswa extends Users implements MahasiswaAction {
@@ -20,27 +23,37 @@ public  class Mahasiswa extends Users implements MahasiswaAction {
         System.out.println(" Lokasi terakhir/ditemukan : ");
         String LokasiTerkhir = input.nextLine();
 
+        Item item = new Item(NamaBarang, DesrikpsiBarang, LokasiTerkhir, "Report item");
+        LoginSystem.reportedItem.add(item);
+
     }
 
     @Override
     public void ViewReportItems() {
-        System.out.println("Fitur Lihar laporan belum tersedia");
+        List<Item> items = LoginSystem.reportedItem;
+        if(items.isEmpty()){
+            System.out.println("data belum ada");
+        }
+        System.out.println("-----daftar barng laporan------");
+        for(Item it : items){
+            if("Report item".equals(it.getStatus())){
+                System.out.println("Nama: "+ it.getName() + "| Deskripsi barang: "+ it.getDescription() + "| Lokasi terakhir: " + it.getLocation());
+            }
+
+        }
 
     }
 
     @Override
     public void logout() {
         System.out.println("keluar dari program");
-
     }
 
     @Override
     public boolean login(String InputNama, String InputPassword) {
         if(prosesLogin(InputNama, InputPassword)){
-            displayAppMenu();
             return true;
         }else{
-            System.out.println("login gagal coba lagi");
             return false;
         }
     }
@@ -53,14 +66,21 @@ public  class Mahasiswa extends Users implements MahasiswaAction {
     }
 
     @Override
-    protected void displayAppMenu() {
+    public void displayAppMenu() {
         int pilihan;
-        do {
+        do{
             System.out.println("1. Laporkan barang temuan/hilang");
             System.out.println("2. Lihat Daftar Laporan");
             System.out.println("0. logout");
+
+            try {
             pilihan = input.nextInt();
             input.nextLine();
+            }catch (InputMismatchException e){
+                input.nextLine();
+                System.out.println("harus angka");
+                return;
+            }
 
             switch (pilihan) {
                 case 1:
@@ -71,8 +91,10 @@ public  class Mahasiswa extends Users implements MahasiswaAction {
                     break;
                 case 0:
                     logout();
+                    break;
                 default:
                     System.out.println("pilihan tidak valid");
+                    break;
 
             }
         }while (pilihan !=0);
